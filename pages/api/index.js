@@ -27,8 +27,8 @@ export default function handler(req, res) {
         }
 
 
-        const lines = data.split("\n"[0])
-        let dataRequired = lines[requestData.numLine]
+        const lines = data.split("\n"[0]).filter(line => line.includes("EPEC3"))
+        let dataRequired = lines[lines.length - 1]
         dataRequired = dataRequired.split(" "[0])
 
         res.status(200).json([{
